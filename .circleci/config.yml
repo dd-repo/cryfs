@@ -160,6 +160,7 @@ references:
   test: &test
     run:
       name: Test
+      no_output_timeout: 30m
       command: |
         cd cmake
         ./test/gitversion/gitversion-test
