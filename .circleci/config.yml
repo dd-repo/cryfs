@@ -191,22 +191,22 @@ references:
         only: /.*/
 
 jobs:
-  gcc_4_8_debug:
+  gcc_4_9_debug:
     <<: *job_definition
     environment:
-      CC: gcc-4.8
-      CXX: g++-4.8
+      CC: gcc-4.9
+      CXX: g++-4.9
       BUILD_TOOLSET: gcc
-      APT_COMPILER_PACKAGE: "g++-4.8"
+      APT_COMPILER_PACKAGE: "g++-4.9"
       CXXFLAGS: ""
       BUILD_TYPE: "Debug"
-  gcc_4_8_release:
+  gcc_4_9_release:
     <<: *job_definition
     environment:
-      CC: gcc-4.8
-      CXX: g++-4.8
+      CC: gcc-4.9
+      CXX: g++-4.9
       BUILD_TOOLSET: gcc
-      APT_COMPILER_PACKAGE: "g++-4.8"
+      APT_COMPILER_PACKAGE: "g++-4.9"
       CXXFLAGS: ""
       BUILD_TYPE: "Release"
   gcc_5_debug:
@@ -371,9 +371,9 @@ workflows:
 
   build_and_test:
     jobs:
-    - gcc_4_8_debug:
+    - gcc_4_9_debug:
         <<: *enable_for_tags
-    - gcc_4_8_release:
+    - gcc_4_9_release:
         <<: *enable_for_tags
     - gcc_5_debug:
         <<: *enable_for_tags
