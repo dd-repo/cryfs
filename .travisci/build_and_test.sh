@@ -9,6 +9,11 @@ if [ ! -n "$NUMCORES" ]; then
 fi
 echo Using $NUMCORES cores
 
+# Setup target directory
+mkdir cmake
+cd cmake
+cmake --version
+
 # Build
 cmake .. -DBUILD_TESTING=on -DCMAKE_BUILD_TYPE=Debug
 make -j$NUMCORES

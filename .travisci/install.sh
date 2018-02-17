@@ -25,11 +25,6 @@ fi
 # By default, travis only fetches the newest 50 commits. We need more in case we're further from the last version tag, so the build doesn't fail because it can't generate the version number.
 git fetch --unshallow
 
-# Setup target directory
-mkdir cmake
-cd cmake
-cmake --version
-
 #  Use /dev/urandom when /dev/random is accessed, because travis doesn't have enough entropy
 if [ "${TRAVIS_OS_NAME}" == "linux" ]; then
   sudo cp -a /dev/urandom /dev/random
