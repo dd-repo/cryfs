@@ -54,7 +54,7 @@ CryDevice::CryDevice(CryConfigFile configFile, unique_ref<BlockStore2> blockStor
   _onFsAction() {
 }
 
-unique_ref<fsblobstore::FsBlobStore> CryDevice::CreateFsBlobStore(unique_ref<BlockStore2> blockStore, CryConfigFile *configFile, uint32_t myClientId, bool noIntegrityChecks, bool missingBlockIsIntegrityViolation) {
+unique_ref<fsblobstore::FsBlobStore> CryDevice::CreateFsBlobStore(unique_ref<BlockStore2> blockStore, CryConfigFile *configFile, const LocalStateDir& localStateDir, uint32_t myClientId, bool noIntegrityChecks, bool missingBlockIsIntegrityViolation) {
   auto blobStore = CreateBlobStore(std::move(blockStore), localStateDir, configFile, myClientId, noIntegrityChecks, missingBlockIsIntegrityViolation);
 
 #ifndef CRYFS_NO_COMPATIBILITY
